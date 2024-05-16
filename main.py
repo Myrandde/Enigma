@@ -1,24 +1,14 @@
 import math
 import re
 
-def enigma(charInput, rotor, stage, i):
+def enigma(charInput, rotor, stage, cur, prev, i):
+    print ("charInput: ", charInput)
     rotorArray = list(rotor)
-
-    if stage == 1:
-        mod = i % 26
-
-    elif stage == 2:
-        mod = math.floor(i/26) % 26
-    
-    elif stage == 3:
-        mod = math.floor(i/676) % 26
-    
-    print("mod: ", mod)
-    num = (ord(charInput) - 13) % 26
-    inputChar = rotorArray[(num - mod) % 26]
+    mod = cur - prev
+    num = (ord(charInput) - 65 + mod) % 26
+    inputChar = rotorArray[(num) % 26]
+    print("   Out: ", inputChar)
     return inputChar
-
-
 
 def reflect(charInput, reflector):
     reflectorArray = list(reflector)
@@ -94,7 +84,7 @@ def etw(charInput, stage, i):
     char = chr(ord(char) - mod)
     return char
 
-def main():
+def enigma():
     rotors = ["EKMFLGDQVZNTOWYHXUSPAIBRCJ","AJDKSIRUXBLHWTMCQGZNPYFVOE","BDFHJLCPRTXVZNYEIWGAKMUSQO","ESOVPZJAYQUIRHXLNFTGKDCMWB","VZBRGITYUPSDNHLXAWMJQOFECK"]
     reflectors = ["YRUHQSLDPXNGOKMIEBFZCWVJAT","FVPJIAOYEDRZXWGCTKUQSBNMHL"]
     rrotors = []
@@ -102,16 +92,18 @@ def main():
     for i in range(len(rotors)):
         rrotors.append(initrevrotors(rotors[i]))
 
-    """ r1 = input("Select first rotor: ")    
-        r2 = input("Select second rotor: ") 
-        r3 = input("Select third rotor: ")
-        ukw = input("Select reflector: ")
-        inputMsg = input("Enter a message: ") """
+    r1 = input("Select first rotor: ")    
+    r2 = input("Select second rotor: ") 
+    r3 = input("Select third rotor: ")
+    ukw = input("Select reflector: ")
+    inputMsg = input("Enter a message: ")
+
     r1 = 3
     r2 = 2
     r3 = 1
     ukw = 1
-    inputMsg = "AAA"
+    #inputMsg = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nisl nec nisl."
+    #inputMsg = "PDSTASNASTMDQQQRZRYEFWJZUMJEGCLWXRHMYWEZJPDOQCILLHUGIWRKSCGHQSLCDUK"
     r1 = int(r1) - 1
     r2 = int(r2) - 1
     r3 = int(r3) - 1
@@ -123,8 +115,7 @@ def main():
     print("Input message: ", inputMsg)
     final = ""
 
-   # plugboard = input("Do you want to use a plugboard? (Y/N): ")
-    plugboard = "N"
+    plugboard = input("Do you want to use a plugboard? (Y/N): ")
     plugboard = plugboard.upper()
     if plugboard == "Y":
         fromLetter = input("Type in all the letters you want to switch from")
@@ -136,17 +127,18 @@ def main():
         toLetter = ""
     
     for i in range(len(inputMsg)):
+
         eins = i % 26
         zwei = math.floor(i/26) % 26
         drei = math.floor(i/676) % 26
 
         charInput = inputMsg[i]
         charInput = subPlug(charInput, fromLetter, toLetter)
-        charInput = enigma(charInput, rotors[r3], 1, i)
+        charInput = enigma(charInput, rotors[r3], 1, eins, 0, i)
         print(charInput)
-        charInput = enigma(charInput, rotors[r2], 2, i)
+        charInput = enigma(charInput, rotors[r2], 2, zwei, eins, i)
         print(charInput)
-        charInput = enigma(charInput, rotors[r1], 3, i)
+        charInput = enigma(charInput, rotors[r1], 3, drei, zwei, i)
         print(charInput)
         charInput = reflect(charInput, reflectors[ukw])
         print(charInput)
@@ -163,4 +155,4 @@ def main():
     print("Final message: ", final)
 
 
-main()
+enigma()

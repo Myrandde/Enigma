@@ -158,12 +158,19 @@ window.addEventListener('keydown', function(e) {
         helligkeit = 'bg-blue-500';
     }
 
+    let f = e.key.toUpperCase();
+    f = f.replace(/[^a-zA-Z]/g,'')
+    console.log(f);
+    if (f != '' && f.length == 1) {
     var caesarElement = main(e.key.toUpperCase());
     //var caesarElement = e.key.toUpperCase();
     var keyElement = document.getElementById('key-' + caesarElement.toUpperCase());
-    if (keyElement) {
-    keyElement.classList.remove('bg-blue-500');
-    keyElement.classList.add(helligkeit);
+        if (keyElement) {
+            keyElement.classList.remove('bg-blue-500');
+            keyElement.classList.add(helligkeit);
+        }
+    } else {
+
     }
 });
 
@@ -179,6 +186,10 @@ window.addEventListener('keyup', function(e) {
         helligkeit = 'bg-blue-500';
     }
 
+    let f = e.key.toUpperCase();
+    f = f.replace(/[^a-zA-Z]/g,'')
+    console.log(f);
+    if (f != '' && f.length == 1) {
     var caesarElement = main(e.key.toUpperCase());
     //var caesarElement = e.key.toUpperCase();
     var keyElement = document.getElementById('key-' + caesarElement.toUpperCase());
@@ -190,6 +201,9 @@ window.addEventListener('keyup', function(e) {
     console.log(helligkeit);
     string += caesarElement;
     console.log(string);
+    } else {
+
+    }
 });
 
 function sub(rotor) {

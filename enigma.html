@@ -7,18 +7,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="grid grid-cols-3 gap-3 items-center rounded-t-3xl flex-col bg-blue-500 text-white text-4xl font-bold mt-20 mx-20">
-        <button class="w-10 h-10 items-center"> Up </button>
-        <button class="w-10 h-10 items-center"> Up </button>
-        <button class="w-10 h-10 items-center"> Up </button>
-        <h1 class=""> 1 </h1>
-        <h1> 1 </h1>
-        <h1> 1 </h1>
-        <button class="w-10 h-10 items-center"> Down </button>
-        <button class="w-10 h-10 items-center"> Down </button>
-        <button class="w-10 h-10 items-center"> Down </button>
+    <div class="grid grid-cols-4 text-center rounded-t-3xl flex-col bg-blue-400 text-white text-4xl font-bold mt-20 mx-20">
+        <div class="col-span-3 grid grid-cols-3 gap-3">
+            <button class="p-10 m-12" onclick="add('rotor-3')"> Up </button>
+            <button class="p-10 m-12" onclick="add('rotor-2')"> Up </button>
+            <button class="p-10 m-12" onclick="add('rotor-1')"> Up </button>
+            <h1 class="p-10 m-12" id="rotor-3"> 1 </h1>
+            <h1 class="p-10 m-12" id="rotor-2"> 1 </h1>
+            <h1 class="p-10 m-12" id="rotor-1"> 1 </h1>
+            <button class="p-10 m-12" onclick="sub('rotor-3')"> Down </button>
+            <button class="p-10 m-12" onclick="sub('rotor-2')"> Down </button>
+            <button class="p-10 m-12" onclick="sub('rotor-1')"> Down </button>
+        </div>
+        <div class="col-span-1 text-center flex items-center align-center">
+            <button id="switch" onclick="batteryChange()">
+                Hell
+            </button>
+        </div>
     </div>
-    <div class="flex items-center rounded-t-3xl flex-col bg-blue-500 text-white text-4xl font-bold mt-20 mx-20">
+    <div class="flex items-center flex-col bg-blue-500 text-white text-4xl font-bold mx-20">
         <div class="flex flex-row">
             <div class="mx-5 my-2 p-5 rounded-full" id="key-Q">Q</div>
             <div class="mx-5 my-2 p-5 rounded-full" id="key-W">W</div>
@@ -52,7 +59,7 @@
             <div class="mx-5 my-2 p-5 rounded-full" id="key-L">L</div>
         </div>
     </div>
-    <div class="flex items-center rounded-b-3xl flex-col bg-gray-500 text-white text-4xl font-bold mx-20">
+    <div class="flex items-center flex-col bg-blue-600 text-white text-4xl font-bold mx-20">
         <div class="flex flex-row">
             <div class="mx-5 my-2 p-5 rounded-full" id="key-Q">Q</div>
             <div class="mx-5 my-2 p-5 rounded-full" id="key-W">W</div>
@@ -85,6 +92,10 @@
             <div class="mx-5 my-2 p-5 rounded-full" id="key-M">M</div>
             <div class="mx-5 my-2 p-5 rounded-full" id="key-L">L</div>
         </div>
+    </div>
+    <div class="flex items-center rounded-b-3xl flex-col bg-blue-700 text-white text-4xl font-bold mx-20">
+        Plugboard
+
     </div>
     <script src="enigma.js"></script>
 </body>

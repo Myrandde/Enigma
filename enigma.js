@@ -41,7 +41,8 @@ function enigma(charInput, rotor, stage, cur, prev, i) {
     console.log("   CharInput: ", charInput);
     let rotorArray = Array.from(rotor);
     let mod = cur - prev;
-    let num = (charInput.charCodeAt(0) - 65 + mod) % 26;
+    let num = (charInput.charCodeAt(0) + 65 + mod) % 26;
+
     let inputChar = rotorArray[num % 26];
     console.log("   Out: ", inputChar);
     return inputChar;
@@ -55,7 +56,7 @@ function reflect(charInput, reflector) {
 
 function back(charInput, rotor, stage, i) {
     console.log("   CharInput: ", charInput);
-    let rrotorArray = Array.from(rotor);
+    console.log("   rotor: ", rotor);
     if (stage === 1) {
         mod = i % 26;
     } else if (stage === 2) {
@@ -64,8 +65,10 @@ function back(charInput, rotor, stage, i) {
         mod = Math.floor(i/676) % 26;
     }
     let num = (charInput.charCodeAt(0) - 13) % 26;
-    let char = rrotorArray[(num + mod) % 26];
-    char = String.fromCharCode(char.charCodeAt(0) - mod);
+    let char = rotor.charAt([(num + mod) % 26]);
+    console.log(char);
+    char = String.fromCharCode((char.charCodeAt(0) - mod + 13) % 26 + 65);
+    console.log((char.charCodeAt(0) - mod));
     console.log("   CharOutput: ", char);
     return char;
 }
@@ -116,7 +119,7 @@ function initrevrotors(rotor) {
         returningRotor[charVal % 26] = alphabetArray[i];
     }
 
-    return returningRotor.join(string);
+    return returningRotor.join("");
 }
 
 

@@ -122,6 +122,16 @@ function initrevrotors(rotor) {
     return returningRotor.join("");
 }
 
+function batteryChange() {
+    let btn = document.getElementById('switch');
+            if (btn.innerText === 'Dunkel') {
+                btn.innerText = 'Hell';
+            } else if (btn.innerText === 'Hell') {
+                btn.innerText = 'Aus';
+            } else if (btn.innerText === 'Aus') {
+                btn.innerText = 'Dunkel';
+            }
+}
 
 function caesar(char) {
     const ascii = char.charCodeAt(0);
@@ -138,25 +148,66 @@ function caesar(char) {
 
 window.addEventListener('keydown', function(e) {
 
+    let licht = document.getElementById('switch').innerText;
+    let helligkeit;
+    if (licht === "Hell") {
+        helligkeit = 'bg-yellow-500';
+    } else if (licht === "Dunkel") {
+        helligkeit = 'bg-yellow-100';
+    } else if (licht === "Aus") {
+        helligkeit = 'bg-blue-500';
+    }
+
     var caesarElement = main(e.key.toUpperCase());
     //var caesarElement = e.key.toUpperCase();
     var keyElement = document.getElementById('key-' + caesarElement.toUpperCase());
     if (keyElement) {
     keyElement.classList.remove('bg-blue-500');
-    keyElement.classList.add('bg-yellow-500');
+    keyElement.classList.add(helligkeit);
     }
 });
 
 window.addEventListener('keyup', function(e) {
+
+    let licht = document.getElementById('switch').innerText;
+    let helligkeit;
+    if (licht === "Hell") {
+        helligkeit = 'bg-yellow-500';
+    } else if (licht === "Dunkel") {
+        helligkeit = 'bg-yellow-100';
+    } else if (licht === "Aus") {
+        helligkeit = 'bg-blue-500';
+    }
+
     var caesarElement = main(e.key.toUpperCase());
     //var caesarElement = e.key.toUpperCase();
     var keyElement = document.getElementById('key-' + caesarElement.toUpperCase());
     if (keyElement) {
-    keyElement.classList.remove('bg-yellow-500');
+    keyElement.classList.remove(helligkeit);
     keyElement.classList.add('bg-blue-500');    
     }   
     num++;
-    console.log(num);
+    console.log(helligkeit);
     string += caesarElement;
     console.log(string);
 });
+
+function sub(rotor) {
+    let selRotor = document.getElementById(rotor);
+    let val = parseInt(selRotor.innerText);
+    if (val == 1) {
+        document.getElementById(rotor).innerText = 26;
+    } else {
+        document.getElementById(rotor).innerText -= 1;
+    }
+}
+
+function add(rotor) {
+    let selRotor = document.getElementById(rotor);
+    let val = parseInt(selRotor.innerText);
+    if (val == 26) {
+        document.getElementById(rotor).innerText = 0;
+    } else {
+        document.getElementById(rotor).innerText = val + 1;
+    }
+}

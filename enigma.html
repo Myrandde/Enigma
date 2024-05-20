@@ -25,82 +25,19 @@
             </button>
         </div>
     </div>
-    <div class="flex items-center flex-col bg-blue-500 text-white text-4xl font-bold mx-20">
-        <div class="flex flex-row">
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-Q">Q</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-W">W</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-E">E</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-R">R</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-T">T</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-Z">Z</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-U">U</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-I">I</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-O">O</div>
-        </div>
-        <div class="flex flex-row">
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-A">A</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-S">S</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-D">D</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-F">F</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-G">G</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-H">H</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-J">J</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-K">K</div>
-        </div>  
-        <div class="flex flex-row">
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-P">P</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-Y">Y</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-X">X</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-C">C</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-V">V</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-B">B</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-N">N</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-M">M</div>
-            <div class="mx-5 my-2 p-5 rounded-full" id="key-L">L</div>
-        </div>
+    <div class="flex items-center flex-col bg-blue-500 text-white text-4xl font-bold mx-20" id="keyboard">
     </div>
-    <div class="flex items-center flex-col bg-blue-600 text-white text-4xl font-bold mx-20">
-        <div class="flex flex-row">
-            <button onclick="plug('Q')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-Q">Q</button>
-            <button onclick="plug('W')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-W">W</button>
-            <button onclick="plug('E')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-E">E</button>
-            <button onclick="plug('R')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-R">R</button>
-            <button onclick="plug('T')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-T">T</button>
-            <button onclick="plug('Z')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-Z">Z</button>
-            <button onclick="plug('U')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-U">U</button>
-            <button onclick="plug('I')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-I">I</button>
-            <button onclick="plug('O')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-O">O</button>
+        <div class="flex items-center flex-col bg-blue-600 text-white text-4xl font-bold mx-20" id="plugboard">
         </div>
-        <div class="flex flex-row">
-            <button onclick="plug('A')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-A">A</button>
-            <button onclick="plug('S')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-S">S</button>
-            <button onclick="plug('D')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-D">D</button>
-            <button onclick="plug('F')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-F">F</button>
-            <button onclick="plug('G')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-G">G</button>
-            <button onclick="plug('H')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-H">H</button>
-            <button onclick="plug('J')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-J">J</button>
-            <button onclick="plug('K')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-K">K</button>
-        </div>  
-        <div class="flex flex-row">
-            <button onclick="plug('P')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-P">P</button>
-            <button onclick="plug('Y')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-Y">Y</button>
-            <button onclick="plug('X')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-X">X</button>
-            <button onclick="plug('C')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-C">C</button>
-            <button onclick="plug('V')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-V">V</button>
-            <button onclick="plug('B')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-B">B</button>
-            <button onclick="plug('N')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-N">N</button>
-            <button onclick="plug('M')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-M">M</button>
-            <button onclick="plug('L')" class="mx-5 my-2 p-5 active:bg-blue-900 rounded-full" id="plug-L">L</button>
+        <div class="flex items-center rounded-b-3xl flex-col bg-blue-700 text-white text-2xl font-bold mx-20">
+            <span class="pt-10 text-4xl">Plugboard</span>
+            <div class="m-6 p-10">
+                <div id="plugfield" class="flex w-full px-20 py-4"></div>
+                <div id="fromLetter"></div>
+                <div id="toLetter"></div>
+            </div>
         </div>
-    </div>
-    <div class="flex items-center rounded-b-3xl flex-col bg-blue-700 text-white text-2xl font-bold mx-20">
-        <span class="pt-10 text-4xl">Plugboard</span>
-        <div class="m-6 p-10">
-            <div id="plugfield" class="flex w-full px-20 py-4"></div>
-            <div id="fromLetter"></div>
-            <div id="toLetter"></div>
-        </div>
-    </div>
     <script src="enigma.js"></script>
+    <script src="fill.js"></script>
 </body>
 </html>

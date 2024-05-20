@@ -209,8 +209,30 @@ function sub(rotor) {
     let val = parseInt(selRotor.innerText);
     if (val == 1) {
         document.getElementById(rotor).innerText = 26;
+        switch (rotor) {
+            case "rotor-1":
+                eins = 26;
+                break;
+            case "rotor-2":
+                zwei = 26;
+                break;
+            case "rotor-3":
+                drei = 26;
+                break;
+        }
     } else {
         document.getElementById(rotor).innerText -= 1;
+        switch (rotor) {
+            case "rotor-1":
+                eins -= 1;
+                break;
+            case "rotor-2":
+                zwei -= 1;
+                break;
+            case "rotor-3":
+                drei -= 1;
+                break;
+        }
     }
 }
 
@@ -219,13 +241,36 @@ function add(rotor) {
     let val = parseInt(selRotor.innerText);
     if (val == 26) {
         document.getElementById(rotor).innerText = 1;
+        switch (rotor) {
+            case "rotor-1":
+                eins = 1;
+                break;
+            case "rotor-2":
+                zwei = 1;
+                break;
+            case "rotor-3":
+                drei = 1;
+                break;
+        }
     } else {
         document.getElementById(rotor).innerText = val + 1;
+        switch (rotor) {
+            case "rotor-1":
+                eins += 1;
+                break;
+            case "rotor-2":
+                zwei += 1;
+                break;
+            case "rotor-3":
+                drei += 1;
+                break;
+        }
     }
 }
+
 fromLetter = "";
 toLetter = "";
-function plug(letter) {
+function addPlug(letter) {
     letter = letter.toUpperCase();
     let field = document.getElementById("plugfield");
     if (field.innerText.length < 29) {

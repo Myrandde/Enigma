@@ -1,7 +1,8 @@
 
 let num = 0;
 let string = "";
-
+let fromLetter = "";
+let toLetter = "";
 function main(key) {
     let rotors = ["EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO"];
     let reflectors = ["YRUHQSLDPXNGOKMIEBFZCWVJAT", "FVPJIAOYEDRZXWGCTKUQSBNMHL"];
@@ -16,15 +17,12 @@ function main(key) {
     let r3 = 0;
     let ukw = 0;
 
-    let fromLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let toLetter = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
-
     eins = num % 26;
     zwei = Math.floor(num/26) % 26;
     drei = Math.floor(num/676) % 26;
 
     let charInput = key;
-    //charInput = subPlug(key, fromLetter, toLetter);
+    charInput = subPlug(key, fromLetter, toLetter);
     charInput = enigma(charInput, rotors[r3], 1, eins, 0, num);
     charInput = enigma(charInput, rotors[r2], 2, zwei, eins, num);
     charInput = enigma(charInput, rotors[r1], 3, drei, zwei, num);
@@ -32,7 +30,7 @@ function main(key) {
     charInput = back(charInput, rrotors[r1], 3, num);
     charInput = back(charInput, rrotors[r2], 2, num);
     charInput = back(charInput, rrotors[r3], 1, num);
-    //charInput = subPlug(charInput, fromLetter, toLetter);
+    charInput = subPlug(charInput, fromLetter, toLetter);
     
     return charInput;
 }
@@ -220,8 +218,28 @@ function add(rotor) {
     let selRotor = document.getElementById(rotor);
     let val = parseInt(selRotor.innerText);
     if (val == 26) {
-        document.getElementById(rotor).innerText = 0;
+        document.getElementById(rotor).innerText = 1;
     } else {
         document.getElementById(rotor).innerText = val + 1;
+    }
+}
+fromLetter = "";
+toLetter = "";
+function plug(letter) {
+    letter = letter.toUpperCase();
+    let field = document.getElementById("plugfield");
+    if (field.innerText.length < 29) {
+        if ((field.innerText.length - 1) % 3 != 0) {
+            field.innerText += letter.toUpperCase();
+            fromLetter += letter;
+            document.getElementById("fromLetter").innerText = fromLetter;
+        } else {
+            field.innerText += letter.toUpperCase();
+            if (field.innerText.length != 29) {
+                field.innerHTML += "-";
+            }
+            toLetter += letter;
+            document.getElementById("toLetter").innerText = toLetter;
+        }
     }
 }
